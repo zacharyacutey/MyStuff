@@ -1,1 +1,1 @@
-alias I=int;bool s(I[]a,I v){I[]t;I i,j;while(a.length-i)t~=a[i++]%v;while(a.length-j)if(t[j++])return 0;return 1;}I g(I[]a){I r=a[0],i;while(a.length-i){r=r>a[i]?a[i]:r;i++;}return r;}bool e(I[]a){I i=2;while(i<=a.g)if(s(a,i++))return 0;return 1;}void main(){}
+alias I=int;bool s(I[]a,I v){I[]t;I i,j;while(a.length-i)t~=a[i++]%v;while(a.length-j)if(t[j++])return 0;return 1;}I g(I[]a){I r=a[0],i;while(a.length-1){r=r>a[i]?a[i]:r;i++;}return r;}bool e(I[]a){I i=2;while(i<=a.g)if(s(a,i++))return 0;return 1;}void main(){}
