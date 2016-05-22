@@ -2,4 +2,7 @@ from replace import replace
 rules = {}
 for i in 'abcdefghijklmnopqrstuvwxyz':
   rules[i]=i
-rules['A']='\xc9\x91' #ɑ
+#SPECIAL CHARACTERS DEFINITIONS
+ALT_A='\x1ba'
+#END SECTION
+rules[ALT_A]=u"\u0250"
