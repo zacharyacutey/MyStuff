@@ -1,2 +1,5 @@
 from replace import replace
-def replace_key(arg):
+rules = {}
+for i in 'abcdefghijklmnopqrstuvwxyz':
+  rules[i]=i
+
