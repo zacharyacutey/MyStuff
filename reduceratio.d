@@ -61,6 +61,5 @@ void reduce(ref int[] arg)
 
 void main()
 {
-  int[] a=[4,2,8];
-  writeln(reduced(a));
+  
 }
