@@ -1,0 +1,1 @@
+alias I=int;I m(I[]a){I r=a[0],i;for(;a.length-i;i++)r=r<a[i]?a[i]:r;return r;}I[]o(I[]a,I n){I d=1,i;I[]r;for(;a.length-i;i++){if(a[i]==n&&d)d=0;else r~=a[i];}return r;}I[]sort(I[]a){I[]t=a.dup,r;while(t.length){r~=t.m;t=o(t,t.m);}return r;}
