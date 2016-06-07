@@ -1,1 +1,2 @@
-alias I=int,J=I[];I m(J a){I r=a[0],i;for(;a.length-i;i++)r=r>a[i]?a[i]:r;return r;}J o(J a){I d=1,i;J r;for(;a.length-i;i++){if(a[i]==a.m&&d)d=0;else r~=a[i];}return r;}J sort(J a){J r;while(a.length){r~=a.m;a=a.o;}return r;}
+
+alias I=int,J=I[];I m(J a){I r=a[0],i;for(;a.length-i;i++)r=r>a[i]?a[i]:r;return r;}J o(J a){I d=1,i;J r;for(;a.length-i;i++){if(a[i]==a.m&&d)d=0;else r~=a[i];}return r;}J sort(J a){J r;while(a.length)r~=a.m,a=a.o;return r;}
