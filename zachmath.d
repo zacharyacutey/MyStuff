@@ -37,6 +37,6 @@ class Fraction {
 	}
 	public string tostring()
 	{
-	  return this.numerator.tostring ~ "/" ~ this.denominator.tostring
+		return this.numerator.tostring ~ "/" ~ this.denominator.tostring;
 	}
 }
