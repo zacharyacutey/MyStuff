@@ -74,14 +74,25 @@ def quadratic(poly):
   a = S(poly[0])
   b = S(poly[1])
   c = S(poly[2])
-  return str((-b+sqrt(b**2-4*a*c))/(2*a)) + "\n" + str((-b-sqrt(b**2-4*a*c))/(2*a))
-  
-def solve_problem(poly):
+  return str((-b+sqrt(b**2-4*a*c))/(2*a)) + "," + str((-b-sqrt(b**2-4*a*c))/(2*a))
+
+def sympy_poly(poly):
   from sympy.abc import x
-  print(list_to_polynomial(poly)(x))
+  return list_to_polynomial(poly)(x)
+def solve_problem(poly):
+  print(sympy_poly(poly))
   p = poly[0]
   q = poly[-1]
   print("The coefficients are: (GREATEST DEGREE) "+str(p)+" (LEAST DEGREE) "+str(q))
   display_factors(p)
   display_factors(q)
-  
+  display_possible_roots(poly)
+  the_root = list(find_rational_roots(poly))[0]
+  f = sympy_poly([1,-the_root])
+  print(str(f) + " is a factor")
+  display_synth(synthetic_division_work(poly,S(the_root)))
+  quad = poly_division(poly,the_root)
+  other_f = sympy_poly(quad)
+  print("(" + str(f) + ")(" + str(other_f) + ")")
+  print("Via quadratic equation we get two roots ")
+  print("x = "+quadratic(other_f)+","+str(the_root))
