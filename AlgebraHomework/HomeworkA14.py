@@ -54,9 +54,34 @@ def synthetic_division_work(poly,divisor):
     work.append(S(result[-1])*divisor)
     result.append(poly[len(result)]+work[-1])
   return [divisor,poly,work,result[:-1],result[-1]] #DIVISOR, DIVIDEND, ADDENDS, QUOTIENT, REMAINDER
-
+def poly_division(poly,divisor):
+  return synthetic_division_work(poly,divisor)[3]
+#Displays the factors of the num `num`
+def display_factors(num):
+  s = factors(num)
+  print("Factors of " + str(num) + " are: " + reduce(lambda x,y : x + y, str(s)[5:-2].split(',')))
+def display_possible_roots(poly):
+  s = possible_divisions(poly)
+  print("Possible roots of the equation (RRT) are: " + reduce(lambda x,y: x+y,str(s)[5:-2].split(',')))
 def display_synth(synth):
   print(str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(',')))
   print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(',')))
   print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[3])[1:-1].split(',')) + "\t|" + str(synth[4]))
-
+def quadratic(poly):
+  if len(poly) != 3 and poly[0] == 0:
+    return quadratic(poly[1:])
+  assert(len(poly)==3)
+  a = S(poly[0])
+  b = S(poly[1])
+  c = S(poly[2])
+  return str((-b+sqrt(b**2-4*a*c))/(2*a)) + "\n" + str((-b-sqrt(b**2-4*a*c))/(2*a))
+  
+def solve_problem(poly):
+  from sympy.abc import x
+  print(list_to_polynomial(poly)(x))
+  p = poly[0]
+  q = poly[-1]
+  print("The coefficients are: (GREATEST DEGREE) "+str(p)+" (LEAST DEGREE) "+str(q))
+  display_factors(p)
+  display_factors(q)
+  
