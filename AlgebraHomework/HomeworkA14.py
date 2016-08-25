@@ -56,7 +56,7 @@ def synthetic_division_work(poly,divisor):
   return [divisor,poly,work,result[:-1],result[-1]] #DIVISOR, DIVIDEND, ADDENDS, QUOTIENT, REMAINDER
 
 def display_synth(synth):
-  print str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(','))
-  print "\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(','))
-  print "\t" + reduce(lambda x,y : x + '\t' + y, str(synth[3])[1:-1].split(',')) + "\t|" + str(synth[4])
+  print(str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(',')))
+  print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(',')))
+  print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[3])[1:-1].split(',')) + "\t|" + str(synth[4]))
 
