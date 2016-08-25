@@ -14,7 +14,7 @@ def list_to_polynomial(coefficients):
   if len(coefficients) == 1:
     return lambda x : coefficients[0]
   else:
-    return lambda x : x**len(coefficients)*coefficients[0] + list_to_polynomial(coefficients[1:])(x)
+    return lambda x : x**(len(coefficients)-1)*coefficients[0] + list_to_polynomial(coefficients[1:])(x)
 
 #Function that finds the factors of a number, then returns a set of those numbers
 def factors(n):
@@ -40,10 +40,10 @@ def check_single_solution(sol,fun):
 def find_rational_roots(poly):
   possible_solutions = possible_divisions(poly[-1],poly[0])
   fun = list_to_polynomial(poly)
-  s = {}
+  s = set()
   for i in possible_solutions:
     if check_single_solution(i,fun):
-      s|=i
+      s|={i}
   return s
 
 #Internals for the synthetic division work
@@ -61,11 +61,11 @@ def display_factors(num):
   s = factors(num)
   print("Factors of " + str(num) + " are: " + reduce(lambda x,y : x + y, str(s)[5:-2].split(',')))
 def display_possible_roots(poly):
-  s = possible_divisions(poly)
+  s = possible_divisions(poly[0],poly[-1])
   print("Possible roots of the equation (RRT) are: " + reduce(lambda x,y: x+y,str(s)[5:-2].split(',')))
 def display_synth(synth):
   print(str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(',')))
-  print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(',')))
+  print("\t\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(',')))
   print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[3])[1:-1].split(',')) + "\t|" + str(synth[4]))
 def quadratic(poly):
   if len(poly) != 3 and poly[0] == 0:
@@ -87,6 +87,7 @@ def solve_problem(poly):
   display_factors(p)
   display_factors(q)
   display_possible_roots(poly)
+  assert(len(find_rational_roots(poly))>=0)
   the_root = list(find_rational_roots(poly))[0]
   f = sympy_poly([1,-the_root])
   print(str(f) + " is a factor")
@@ -95,4 +96,4 @@ def solve_problem(poly):
   other_f = sympy_poly(quad)
   print("(" + str(f) + ")(" + str(other_f) + ")")
   print("Via quadratic equation we get two roots ")
-  print("x = "+quadratic(other_f)+","+str(the_root))
+  print("x = "+quadratic(quad)+","+str(the_root))
