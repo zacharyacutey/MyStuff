@@ -19,8 +19,8 @@ def list_to_polynomial(coefficients):
 #Function that finds the factors of a number, then returns a set of those numbers
 def factors(n):
   s = set()
-  for i in range(n+1)[1:]:
-    if n % i == 0:
+  for i in range(abs(n)+1)[1:]:
+    if abs(n) % i == 0:
       s |= {i,-i}
   return s
 
