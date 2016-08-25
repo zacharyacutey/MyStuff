@@ -67,6 +67,9 @@ def display_synth(synth):
   print(str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(',')))
   print("\t\t" + reduce(lambda x,y : x + '\t' + y, str(synth[2])[1:-1].split(',')))
   print("\t" + reduce(lambda x,y : x + '\t' + y, str(synth[3])[1:-1].split(',')) + "\t|" + str(synth[4]))
+def display_quadratic(a,b,c):
+  print("("+str(-b) + "+sqrt(" + str(b**2) + "-" + str(4*a*c)+"))/"+str(2*a))
+  print("("+str(-b) + "-sqrt(" + str(b**2) + "-" + str(4*a*c)+"))/"+str(2*a))
 def quadratic(poly):
   if len(poly) != 3 and poly[0] == 0:
     return quadratic(poly[1:])
@@ -95,5 +98,8 @@ def solve_problem(poly):
   quad = poly_division(poly,the_root)
   other_f = sympy_poly(quad)
   print("(" + str(f) + ")(" + str(other_f) + ")")
-  print("Via quadratic equation we get two roots ")
+  a = quad[0]
+  b = quad[1]
+  c = quad[2]
+  display_quadratic(a,b,c)
   print("x = "+quadratic(quad)+","+str(the_root))
