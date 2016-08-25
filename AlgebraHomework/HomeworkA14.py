@@ -61,7 +61,7 @@ def display_factors(num):
   s = factors(num)
   print("Factors of " + str(num) + " are: " + reduce(lambda x,y : x + y, str(s)[5:-2].split(',')))
 def display_possible_roots(poly):
-  s = possible_divisions(poly[1],poly[0])
+  s = possible_divisions(poly[-1],poly[0])
   print("Possible roots of the equation (RRT) are: " + reduce(lambda x,y: x+y,str(s)[5:-2].split(',')))
 def display_synth(synth):
   print(str(synth[0]) + "|\t" + reduce(lambda x,y : x + '\t' + y, str(synth[1])[1:-1].split(',')))
