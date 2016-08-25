@@ -1,5 +1,8 @@
 from sympy import *
 from functools import reduce
+"""
+NOTE: THIS ONLY SOLVES CUBIC EQUATIONS, WHICH ARE A MAJORITY OF THE PROBLEMS
+"""
 #Hacking the python functions to match Python 2
 #MAP FUNCTION
 old_map = map
