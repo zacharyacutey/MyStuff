@@ -1,0 +1,12 @@
+PD
+prgmS
+Str0+"/"->Str1
+G
+prgmS
+Str1+Str0+"(+-)"->Str1
+KF
+prgmS
+Str1+Str0+")/"->Str1
+H
+prgmS
+Str1+Str0->Str1
