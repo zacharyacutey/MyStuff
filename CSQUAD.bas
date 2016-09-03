@@ -40,6 +40,9 @@ H/I->H
 End
 I+1->I
 End
+prgmDISPLAYQ
+Pause Str1
+Stop
 Disp P*D,"/",G
 Pause "+ OR -"
 Disp E,"*V(",K*F,")/",H
