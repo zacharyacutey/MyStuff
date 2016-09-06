@@ -7,11 +7,15 @@ def hw_simplify(numerator,denominator):
 	print(str(factor(numerator)/factor(denominator)))
 	for i in solve(denominator,x):
 		print("x != "+str(i))
-def hw_multiply(n1,d1,n2,d2):
-	print(str(n1)+"/"+str(d1)+"*"+str(n2)+"/"+str(d2))
+def hw_multiply(n1,d1,n2,d2,d=True):
+	if d: print("("+str(n1)+"/"+str(d1)+")*("+str(n2)+"/"+str(d2)+")")
 	numerator = n1 * n2
 	denominator = d1 * d2
 	print("("+str(factor(numerator))+")/("+str(factor(denominator))+")")
 	print(str(factor(numerator)/factor(denominator)))
 	for i in solve(denominator,x):
+		print("x != "+str(i))
+def hw_divide(n1,d1,n2,d2):
+	hw_multiply(n1,d1,d2,n2,False)
+	for i in solve(n2,x):
 		print("x != "+str(i))
