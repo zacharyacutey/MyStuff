@@ -25,6 +25,9 @@ Str0+"/"->Str1
 G
 prgmS
 Str1+Str0+"(+-)"->Str1
+E
+prgmS
+Str1+Str0+"V("->Str1
 KF
 prgmS
 Str1+Str0+")/"->Str1
